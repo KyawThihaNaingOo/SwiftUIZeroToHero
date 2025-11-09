@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var goToBasicView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack(spacing: 20) {
+                Text("Home Screen")
+                    .font(.largeTitle)
+                Button("Go Widget Page"){
+                    goToBasicView = true
+                }
+                //                NavigationLink("Go to Detail View") {
+                //                    BasicWidgets()
+                //                }
+                .buttonStyle(.borderedProminent)
+            }.navigationDestination(isPresented: $goToBasicView) {
+                BasicWidgets()
+            }
+            .navigationTitle("Main").navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
     }
 }
 
