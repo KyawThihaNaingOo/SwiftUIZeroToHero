@@ -11,22 +11,23 @@ struct ContentView: View {
     @State private var goToBasicView = false
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                Text("Home Screen")
-                    .font(.largeTitle)
-                Button("Go Widget Page"){
-                    goToBasicView = true
-                }
-                //                NavigationLink("Go to Detail View") {
-                //                    BasicWidgets()
-                //                }
-                .buttonStyle(.borderedProminent)
-            }.navigationDestination(isPresented: $goToBasicView) {
-                BasicWidgets()
-            }
-            .navigationTitle("Main").navigationBarTitleDisplayMode(.inline)
-        }
+        BasicWidgets()
+//        NavigationStack {
+//            VStack(spacing: 20) {
+//                Text("Home Screen")
+//                    .font(.largeTitle)
+//                Button("Go Widget Page"){
+//                    goToBasicView = true
+//                }
+//                //                NavigationLink("Go to Detail View") {
+//                //                    BasicWidgets()
+//                //                }
+//                .buttonStyle(.borderedProminent)
+//            }.navigationDestination(isPresented: $goToBasicView) {
+//                BasicWidgets()
+//            }
+//            .navigationTitle("Main").navigationBarTitleDisplayMode(.inline)
+//        }
     }
 }
 

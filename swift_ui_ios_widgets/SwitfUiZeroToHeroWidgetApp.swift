@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct swift_ui_ios_widgetsApp: App {
+struct SwitfUiZeroToHeroWidgetsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
