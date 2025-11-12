@@ -11,6 +11,13 @@ enum Route: Hashable {
     case login
     case register
     case detail(id: Int, name: String)
+    ///
+    case simpleListWiget
+    case listWithModel
+    case editableListWidget
+    case simpleGridWidget
+    case gridViewDynamicWidget
+    case themeModelPickerWidget
     
     @ViewBuilder
     var destination: some View {
@@ -21,6 +28,18 @@ enum Route: Hashable {
             RegisterScreen()
         case .detail(id: let id, name: let name):
             DetailScreen(id: id, name: name)
+        case .simpleListWiget:
+            SimpleListWidget()
+        case .listWithModel:
+            UserList()
+        case .editableListWidget:
+            EditableList()
+        case .simpleGridWidget:
+            SimpleGridWidget()
+        case .gridViewDynamicWidget:
+            GridViewDynaimcWidget()
+        case .themeModelPickerWidget:
+            ThemeModePickerWidget()
         }
     }
 }
@@ -110,30 +129,30 @@ struct DetailScreen: View {
 }
 
 
-
-#Preview {
-    @Previewable @State var routes: [Route] = []
-    @Previewable @State var returnHandlers: [((Any?) -> Void)?] = []
-    
-    NavigationStack(path: $routes) {
-        LoginScreen()
-            .navigationDestination(for: Route.self) { route in
-                route.destination
-            }
-    }
-    .environment(\.navigate, NavigateAction(
-        push: { route, onReturn in
-            routes.append(route)
-            returnHandlers.append(onReturn)
-        },
-        pop: { value in
-            if !routes.isEmpty {
-                routes.removeLast()
-                // When popping, call the callback of the previous route
-                if let handler = returnHandlers.popLast(), let callback = handler {
-                    callback(value)
-                }
-            }
-        }
-    ))
-}
+//
+//#Preview {
+//    @Previewable @State var routes: [Route] = []
+//    @Previewable @State var returnHandlers: [((Any?) -> Void)?] = []
+//    
+//    NavigationStack(path: $routes) {
+//        LoginScreen()
+//            .navigationDestination(for: Route.self) { route in
+//                route.destination
+//            }
+//    }
+//    .environment(\.navigate, NavigateAction(
+//        push: { route, onReturn in
+//            routes.append(route)
+//            returnHandlers.append(onReturn)
+//        },
+//        pop: { value in
+//            if !routes.isEmpty {
+//                routes.removeLast()
+//                // When popping, call the callback of the previous route
+//                if let handler = returnHandlers.popLast(), let callback = handler {
+//                    callback(value)
+//                }
+//            }
+//        }
+//    ))
+//}
