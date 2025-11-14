@@ -19,7 +19,7 @@ struct UserList: View {
         User(name: "Bob", age: 30),
         User(name: "Charlie", age: 27)
     ]
-
+    
     var body: some View {
         List(users) { user in
             HStack {

@@ -14,20 +14,17 @@ struct SimpleGridWidget: View {
                 Text("Row 1, Cell 1")
                 Text("Row 1, Cell 2")
             }
-            
             // This view spans 2 columns
             Text("This spans the whole width")
                 .gridCellColumns(2) // Spans 2 columns
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.blue.opacity(0.2))
-            
             GridRow {
                 Text("Row 3, Cell 1")
                 Text("Row 3, Cell 2")
             }
-        }
-        .padding()
+        }.padding()
     }
 }
 
