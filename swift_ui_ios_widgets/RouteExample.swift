@@ -39,7 +39,7 @@ enum Route: Hashable {
         case .gridViewDynamicWidget:
             GridViewDynaimcWidget()
         case .themeModelPickerWidget:
-            ThemeModePickerWidget()
+            DialogAndSheetWidgets()
         }
     }
 }
